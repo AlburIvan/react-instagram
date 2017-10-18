@@ -16,10 +16,11 @@ export default class ProfileHead extends Component {
     let headHeight = this.props.height ? this.props.height : 70;
     let headWidth = this.props.width ? this.props.width : 70;
     let username =  this.props.text && <Text style={styles.headText}>{this.props.text}</Text>
+    let headColor = this.props.color && this.props.color;
 
     return (
         <View style={styles.container}>
-          <View style={[styles.head, {height: headHeight, width: headWidth} ]} />
+          <View style={[styles.head, {height: headHeight, width: headWidth, backgroundColor: headColor} ]} />
           {username}
         </View>
     );
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   head: {
-    backgroundColor: 'white',
+    // backgroundColor: 'red',
     borderRadius: 35,
   },
   headText: {

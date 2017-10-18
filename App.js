@@ -16,6 +16,10 @@ import ProfileHead from "./src/components/profilehead.comp.js";
 import OverflowIcon from "./assets/icons/overflow.icon.js";
 import CameraIcon from "./assets/icons/camera.icon.js";
 import InboxIcon from "./assets/icons/inbox.icon.js";
+import LikeIcon from "./assets/icons/like.icon.js";
+import ChatIcon from "./assets/icons/chat.icon.js";
+import SendIcon from "./assets/icons/send.icon.js";
+import BookmarkIcon from "./assets/icons/bookmark.icon.js";
 
 export default class App extends Component {
   render() {
@@ -54,17 +58,18 @@ export default class App extends Component {
             <StoryHead text="sergiocarlos"/>
             <StoryHead text="luisf11"/>
             <StoryHead text="fredd.in"/>
+            <StoryHead text="braylersanchez"/>
           </ScrollView>
         </View>
 
         <View style={styles.contentContainer}>
           <View style={styles.contentHeader}>
             <View style={styles.contentHeaderImage}>
-              <ProfileHead height={30} width={30} />
+              <ProfileHead height={30} width={30} color="#cecece" />
             </View>
 
             <View style={styles.contentHeaderText}>
-              <Text>Username</Text>
+              <Text>fredd.in</Text>
             </View>
 
             <View style={styles.contentHeaderOverflow}>
@@ -77,10 +82,10 @@ export default class App extends Component {
           </View>
 
           <View style={styles.contentActions}>
-            <Svg width="25" height="25" />
-            <Svg width="25" height="25" />
-            <Svg width="25" height="25" />
-            <Svg width="25" height="25" />
+            <LikeIcon />
+            <ChatIcon />
+            <SendIcon />
+            <BookmarkIcon />
           </View>
 
           <View style={styles.contentInformation}>
@@ -163,7 +168,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   storyViews: {
-    flex: 1,
+    height: 20,
+    // flex: 1,
     flexDirection: 'row',
     backgroundColor: 'yellow',
   },
@@ -174,31 +180,29 @@ const styles = StyleSheet.create({
   contentHeader: {
     height: 56,
     flexDirection: 'row',
-    backgroundColor: 'green',
-    alignItems: 'center',
+    backgroundColor: 'white',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     paddingTop: 5,
     paddingBottom: 5,
     paddingRight: 10,
     paddingLeft: 10,
   },
   contentHeaderImage: {
-    height: 30,
-    width: 30,
+    flex: 1,
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    backgroundColor: 'red',
+    alignItems: 'center',
   },
   contentHeaderText: {
     flex: 7,
-    paddingLeft: 8,
-    backgroundColor: 'yellow',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   contentHeaderOverflow: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'stretch',
-    justifyContent: 'flex-end',
-    backgroundColor: 'blue',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   contentImage: {
     flex: 5,
