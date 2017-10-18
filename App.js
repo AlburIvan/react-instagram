@@ -23,8 +23,7 @@ import BookmarkIcon from "./assets/icons/bookmark.icon.js";
 
 export default class App extends Component {
   render() {
-    return (
-      <View style={styles.container}>
+    return <View style={styles.container}>
         <View style={styles.instaHeader}>
           <View style={styles.instaStoryButton}>
             <CameraIcon />
@@ -50,15 +49,13 @@ export default class App extends Component {
             </View>
           </View>
 
-          <ScrollView  style={styles.storyViews}  
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}>
+          <ScrollView style={styles.storyViews} horizontal={true} showsHorizontalScrollIndicator={false}>
             <StoryHead text="You" />
-            <StoryHead text="showcarlosduran"/>
-            <StoryHead text="sergiocarlos"/>
-            <StoryHead text="luisf11"/>
-            <StoryHead text="fredd.in"/>
-            <StoryHead text="braylersanchez"/>
+            <StoryHead text="showcarlosduran" />
+            <StoryHead text="sergiocarlos" />
+            <StoryHead text="luisf11" />
+            <StoryHead text="fredd.in" />
+            <StoryHead text="braylersanchez" />
           </ScrollView>
         </View>
 
@@ -69,7 +66,7 @@ export default class App extends Component {
             </View>
 
             <View style={styles.contentHeaderText}>
-              <Text>fredd.in</Text>
+              <Text style={styles.boldText}>fredd.in</Text>
             </View>
 
             <View style={styles.contentHeaderOverflow}>
@@ -81,25 +78,38 @@ export default class App extends Component {
             <View />
           </View>
 
+          <View style={styles.contentImage} />
+
           <View style={styles.contentActions}>
-            <LikeIcon />
-            <ChatIcon />
-            <SendIcon />
-            <BookmarkIcon />
+            <View  style={styles.mainActions}>
+              <View style={styles.actionLike}>
+                <LikeIcon />
+              </View>
+              <View style={styles.actionChat}>
+                <ChatIcon />
+              </View>
+              <View style={styles.actionSend}>
+                <SendIcon />
+              </View>
+            </View>
+           
+            <View style={styles.actionBookmark}>
+              <BookmarkIcon />
+            </View>
           </View>
 
           <View style={styles.contentInformation}>
             <View style={styles.contentlikes}>
-              <Text>253 likes</Text>
+              <Text style={styles.boldText}>253 likes</Text>
             </View>
 
             <View style={styles.contentText}>
-              <Text>Username</Text>
+              <Text style={styles.boldText}>fredd.in</Text>
               <Text>Lorem</Text>
             </View>
 
             <View style={styles.contentExpandText}>
-              <Text>View all 8 comments</Text>
+              <Text >View all 8 comments</Text>
             </View>
 
             <View style={styles.contentDetailContainer}>
@@ -109,8 +119,7 @@ export default class App extends Component {
             </View>
           </View>
         </View>
-      </View>
-    );
+      </View>;
   }
 }
 
@@ -181,8 +190,6 @@ const styles = StyleSheet.create({
     height: 56,
     flexDirection: 'row',
     backgroundColor: 'white',
-    // alignItems: 'center',
-    // justifyContent: 'center',
     paddingTop: 5,
     paddingBottom: 5,
     paddingRight: 10,
@@ -209,10 +216,35 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   contentActions: {
-    flex: 1,
+    // flex: 1,
+    height: 45,
     flexDirection: 'row',
     backgroundColor: 'cyan',
+    padding: 8,
   },
+  mainActions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  actionLike: {
+    // padding: 5,
+  },
+  actionChat: {
+
+  },
+  actionSend: {
+
+  },
+  actionBookmark: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+
+
+
+
+
   boldText: {
     fontWeight: 'bold',
   }
