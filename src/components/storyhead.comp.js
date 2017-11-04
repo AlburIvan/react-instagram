@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   head: {
-    backgroundColor: 'white',
+    backgroundColor: '#cecece',
     borderRadius: 35,
   },
   headText: {
