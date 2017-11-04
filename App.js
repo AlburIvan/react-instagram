@@ -5,25 +5,22 @@ import {
   View,
   Image,
   Button,
-  ScrollView
+  ScrollView,
+  TouchableHighlight,
 } from "react-native";
-import Svg, { Path } from "react-native-svg";
+
+import {
+  CameraIcon,
+  InboxIcon,
+} from "./assets/icons/icons.js";
 
 import StoryHead from "./src/components/storyhead.comp.js";
-import ProfileHead from "./src/components/profilehead.comp.js";
-
-
-import OverflowIcon from "./assets/icons/overflow.icon.js";
-import CameraIcon from "./assets/icons/camera.icon.js";
-import InboxIcon from "./assets/icons/inbox.icon.js";
-import LikeIcon from "./assets/icons/like.icon.js";
-import ChatIcon from "./assets/icons/chat.icon.js";
-import SendIcon from "./assets/icons/send.icon.js";
-import BookmarkIcon from "./assets/icons/bookmark.icon.js";
+import Post from "./src/components/post.comp.js";
 
 export default class App extends Component {
   render() {
-    return <View style={styles.container}>
+    return(
+      <View style={styles.container}>
         <View style={styles.instaHeader}>
           <View style={styles.instaStoryButton}>
             <CameraIcon />
@@ -38,88 +35,39 @@ export default class App extends Component {
           </View>
         </View>
 
-        <View style={styles.storyContainer}>
-          <View style={styles.storyTextContainer}>
-            <View style={styles.storyText}>
-              <Text style={styles.boldText}>Stories</Text>
-            </View>
-
-            <View style={styles.storyWatchAll}>
-              <Text style={styles.boldText}>Watch All</Text>
-            </View>
-          </View>
-
-          <ScrollView style={styles.storyViews} horizontal={true} showsHorizontalScrollIndicator={false}>
-            <StoryHead text="You" />
-            <StoryHead text="showcarlosduran" />
-            <StoryHead text="sergiocarlos" />
-            <StoryHead text="luisf11" />
-            <StoryHead text="fredd.in" />
-            <StoryHead text="braylersanchez" />
-          </ScrollView>
-        </View>
-
-        <View style={styles.contentContainer}>
-          <View style={styles.contentHeader}>
-            <View style={styles.contentHeaderImage}>
-              <ProfileHead height={30} width={30} color="#cecece" />
-            </View>
-
-            <View style={styles.contentHeaderText}>
-              <Text style={styles.boldText}>fredd.in</Text>
-            </View>
-
-            <View style={styles.contentHeaderOverflow}>
-              <OverflowIcon />
-            </View>
-          </View>
-
-          <View style={styles.contentImage}>
-            <View />
-          </View>
-
-          <View style={styles.contentImage} />
-
-          <View style={styles.contentActions}>
-            <View  style={styles.mainActions}>
-              <View style={styles.actionLike}>
-                <LikeIcon />
+        <ScrollView style={styles.postsContainer} 
+            showsVerticalScrollIndicator={false}>
+          <View style={styles.storyContainer}>
+            <View style={styles.storyTextContainer}>
+              <View style={styles.storyText}>
+                <Text style={styles.boldText}>Stories</Text>
               </View>
-              <View style={styles.actionChat}>
-                <ChatIcon />
-              </View>
-              <View style={styles.actionSend}>
-                <SendIcon />
+
+              <View style={styles.storyWatchAll}>
+                <Text style={styles.boldText}>Watch All</Text>
               </View>
             </View>
-           
-            <View style={styles.actionBookmark}>
-              <BookmarkIcon />
-            </View>
+
+            <ScrollView style={styles.storyViews} horizontal={true} showsHorizontalScrollIndicator={false}>
+              <StoryHead text="You" />
+              <StoryHead text="showcarlosduran" />
+              <StoryHead text="sergiocarlos" />
+              <StoryHead text="luisf11" />
+              <StoryHead text="fredd.in" />
+              <StoryHead text="braylersanchez" />
+              <StoryHead text="nathaniel" />
+              <StoryHead text="nelson.react" />
+            </ScrollView>
           </View>
 
-          <View style={styles.contentInformation}>
-            <View style={styles.contentlikes}>
-              <Text style={styles.boldText}>253 likes</Text>
-            </View>
+       
+          <Post />
+          <Post />
+          <Post />
+        </ScrollView>
 
-            <View style={styles.contentText}>
-              <Text style={styles.boldText}>fredd.in</Text>
-              <Text>Lorem</Text>
-            </View>
-
-            <View style={styles.contentExpandText}>
-              <Text >View all 8 comments</Text>
-            </View>
-
-            <View style={styles.contentDetailContainer}>
-              <Text>10 Minutes ago</Text>
-              <Text> * </Text>
-              <Text>See translation</Text>
-            </View>
-          </View>
-        </View>
-      </View>;
+      </View>
+    );
   }
 }
 
@@ -156,9 +104,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   storyContainer: {
-    flex: 1,
+    flex: 0.25,
     flexDirection: 'column',
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
     padding: 10,
   },
   storyTextContainer: {
@@ -177,74 +125,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   storyViews: {
-    height: 20,
-    // flex: 1,
+    flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'yellow',
   },
-  contentContainer: {
-    flex: 2,
-    backgroundColor: 'gray',
-  },
-  contentHeader: {
-    height: 56,
-    flexDirection: 'row',
+  postsContainer: {
+    flex: 1,
     backgroundColor: 'white',
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingRight: 10,
-    paddingLeft: 10,
   },
-  contentHeaderImage: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  contentHeaderText: {
-    flex: 7,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
-  contentHeaderOverflow: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  contentImage: {
-    flex: 5,
-    backgroundColor: 'black',
-  },
-  contentActions: {
-    // flex: 1,
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'cyan',
-    padding: 8,
-  },
-  mainActions: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  actionLike: {
-    // padding: 5,
-  },
-  actionChat: {
-
-  },
-  actionSend: {
-
-  },
-  actionBookmark: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
-
-
-
-
-
   boldText: {
     fontWeight: 'bold',
   }
